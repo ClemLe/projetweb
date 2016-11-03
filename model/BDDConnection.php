@@ -11,7 +11,7 @@ class BDDConnection {
     public static function getConnection() {
 
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
+            $pdo = new PDO('mysql:host=localhost;dbname=bibliotheque', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         } catch (PDOException $ex) {

@@ -30,19 +30,20 @@ class UserDAO {
         if ($st instanceof User) {
             $dbc = BDDConnection::getInstance()->getConnection();
             // prepare the SQL statement 
-            $query = "INSERT INTO USER(description, date_creation, distance) VALUES (:descr, :dat, :d)";
+            $query = "INSERT INTO USER(nom, prenom, email, password) VALUES (:pre, :nom, :mail, :mdp)";
             $stmt = $dbc->prepare($query);
 
             // bind the paramaters
-            $stmt->bindValue(':descr', $st->getDescription(), PDO::PARAM_STR);
-            $stmt->bindValue(':dat', $st->getDate(), PDO::PARAM_STR);
-            $stmt->bindValue(':d', $st->getDist(), PDO::PARAM_STR);
+            $stmt->bindValue(':pre', $st->getPrenom(), PDO::PARAM_STR);
+            $stmt->bindValue(':nom', $st->getNom(), PDO::PARAM_STR);
+            $stmt->bindValue(':mail', $st->getMail(), PDO::PARAM_STR);
+            $stmt->bindValue(':mdp', $st->getMotDePasse(), PDO::PARAM_STR);
 
             // execute the prepared statement
             $stmt->execute();
         }
     }
-
+/*
     public function delete(User $st) {
         if ($st instanceof User) {
             $dbc = BDDConnection::getInstance()->getConnection();
@@ -77,6 +78,8 @@ class UserDAO {
             $stmt->execute();
         }
     }
+    
+*/
 
 }
 ?> 

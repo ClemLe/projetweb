@@ -36,5 +36,15 @@ class User {
     public function getPrenom() {
         return $this->prenom;
     }
+    
+    public function getMail() {
+        return $this->email;
+    }
+    
+    public function getMotDePasse() {
+        return $this->motdepasse;
+    }
+    
+    
 
 }
